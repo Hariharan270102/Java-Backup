@@ -1,0 +1,7 @@
+class Demo
+{
+	public Static void main(String a[])
+	{
+		System.out.println("Hi Hello Welcome to JAVA");
+	}
+}

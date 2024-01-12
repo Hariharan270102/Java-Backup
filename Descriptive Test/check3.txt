@@ -1,0 +1,32 @@
+public void songOperations(int choice)
+{
+	switch(choice)
+	{
+
+	case 1:
+	System.out.println("Sorting song based upon duration:");
+	l.sort((obj1,obj2)->(obj1.getDuration())>(obj2.getDuration())?1:-1);
+	//songOperations();
+
+	case 2:
+	System.out.println("Sorting song based upon rating");
+	l.sort((obj1,obj2)->((obj1.getRating())>(obj2.getRating())?1:-1));
+	//songOperations();
+
+	case 3:
+	System.out.println("Enter song to search ");
+	String search=sc.next();
+	try{
+	searchSong(search);
+	}
+	catch(SongNotFoundException e)
+	{
+	System.out.println(e);
+	}
+	//songOperations();
+	}
+
+	default:
+	break;
+
+}

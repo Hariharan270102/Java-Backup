@@ -1,0 +1,13 @@
+public void createDatabase()
+{
+	/*Song song_obj=(Song)s.createSong("aaa,pop,04:58,5.0");
+	Song song_obj1=(Song)s.createSong("bbb,jazz,05:44,4.0");
+	l.add(song_obj);
+	l.add(song_obj1);
+	*/
+	Song s=new Song();
+	l.add(s.createSong("aaa,pop,04:58,5.0"));
+	l.add(s.createSong("bbb,jazz,05:44,4.0"));
+	l.add(s.createSong("ccc,folk,03:44,3.0"));
+	
+}

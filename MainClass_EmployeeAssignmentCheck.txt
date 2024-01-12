@@ -1,0 +1,185 @@
+
+import java.util.*;
+class Employee_Assignment
+{
+Scanner sc=new Scanner(System.in);
+int empId;
+String empName;
+long salary;
+//static String company="ABC Solutions";
+
+public String toString()
+{                                                            //overriding toString method
+return empId+" "+empName+" "+salary; 
+}
+
+//constructor creation
+Employee_Assignment(int id,String name,long sal)             //parameterised constructor
+{
+this.empId=id;
+this.empName=name;
+this.salary=sal;
+}
+
+Employee_Assignment()
+{}                                                            //default constructor
+
+//Employee_Assignment empObjNew=new Employee_Assignment();
+
+//public void create(Employee_Assignment...empArr)
+//{
+//emp
+//}
+
+
+
+
+public void update(Employee_Assignment...empArr)
+{
+System.out.println("Enter Employee id to update employee name or salary");             //update details method
+int id=sc.nextInt();
+for(Employee_Assignment i:empArr)
+{
+if(i.empId==id)
+{
+System.out.println("1 for update name \n 2 for update salary");
+int select=sc.nextInt();
+if(select==1)
+{
+System.out.println("Enter new name");
+String newName=sc.next();
+i.empName=newName;
+}
+else
+{
+System.out.println("Enter new salary amount");
+long s=sc.nextLong();
+i.salary=s;
+}
+}
+}
+}
+
+
+
+
+public void search(Employee_Assignment...empArr)
+{
+System.out.println("Enter employee id to search");                                    //employee search method
+int searchId=sc.nextInt();
+for(Employee_Assignment i:empArr)
+{
+if(i.empId==searchId)
+{
+System.out.println(i);
+break;
+}
+else
+{
+continue;
+}
+}
+System.out.println("Search successful");
+}
+
+
+
+
+public void displayAllEmp(Employee_Assignment...empArr)
+{
+for(Employee_Assignment i:empArr)                                                    //display all employee method
+{
+System.out.println(i);
+
+}
+}
+
+
+
+public void delete(Employee_Assignment...empArr)
+{
+System.out.println("Enter employee id to delete from database");                    //employee delete method 
+int deleteId=sc.nextInt();
+for(Employee_Assignment i:empArr)
+{
+if(i.empId==deleteId)
+{
+i.empId=0;
+i.empName="null";
+i.salary=0;
+}
+System.out.println("Employee deleted from database");
+}
+
+}
+
+}                                                                                    //Reference class closing braces
+
+
+public class MainClass_EmployeeAssignmentCheck
+{
+public static void main(String args[])
+{
+Employee_Assignment empArr[]=new Employee_Assignment[10];
+//Employee_Assignment newEmpArr[]=new Employee_Assignment[10];
+Employee_Assignment empObj=new Employee_Assignment();
+Scanner sc=new Scanner(System.in);
+int id=101;
+//int newId=201;
+//int new=0;
+System.out.println("EMPLOYEE DETAILS");
+
+                                                                               //employee details info from user.
+for(int i=0;i<10;i++)
+{
+System.out.println("ENTER NAME: ");
+String name=sc.next();
+System.out.println("ENTER SALARY: ");
+long sal=sc.nextLong();
+Employee_Assignment ea=new Employee_Assignment(id,name,sal);
+id=id+1;
+empArr[i]=ea;
+}
+
+System.out.println("CRUD Operations");
+System.out.println("Select 1 to create");                                       //ask user what to do?
+System.out.println("Select 2 to update");
+System.out.println("Select 3 to search");
+System.out.println("Select 4 to display all employee details");
+System.out.println("Select 5 to delete");
+System.out.println("Select 6 to exit");
+int selection=sc.nextInt();
+
+switch(selection)
+{
+/*case 1:
+System.out.println("ENTER NAME: ");
+String name=sc.next();
+System.out.println("ENTER SALARY: ");
+long sal=sc.nextLong();
+Employee_Assignment empObjNew=new Employee_Assignment(newId,name,sal);
+newEmpArr[new]=empObjNew;
+new=new+1;
+newId=newId+1;                                                         //method calling using empObj object created using normal/default constructor
+break;*/
+case 2:
+empObj.update(empArr);
+break;
+case 3:
+empObj.search(empArr);
+break;
+case 4:
+empObj.displayAllEmp(empArr);
+break;
+case 5:
+empObj.delete(empArr);
+break;
+default:
+System.out.println("BYE");
+break;
+}
+
+
+
+}
+}

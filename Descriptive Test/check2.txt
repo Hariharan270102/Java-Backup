@@ -1,0 +1,29 @@
+public void searchSong(String search)throws Exception
+{
+try(FileOutputStream fos=new FileOutputStream(f);
+ObjectOutputStream ow=new ObjectOutputStream(fos);
+)
+{//try start
+int flag=0;
+for(Song i:l)
+{
+if(i.getTitle().equals(search))
+{
+	System.out.println("Song Found"+i);
+	ow.write(i);
+	flag=1;
+	break;
+}
+if(flag==0)
+{
+throw SongNotFoundException();
+}
+catch(Exception e)
+{
+System.out.println(e);
+}
+}
+
+}
+
+}
